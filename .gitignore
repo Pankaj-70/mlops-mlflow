@@ -3,9 +3,11 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+#my-additions
 mlflow/
 mlruns/
 mlartifacts/
+Confusion-matrix.png
 # C extensions
 *.so
 

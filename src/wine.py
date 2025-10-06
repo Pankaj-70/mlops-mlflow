@@ -8,6 +8,7 @@ import seaborn as sns
 
 mlflow.set_tracking_uri("http://127.0.0.1:5000")
 
+mlflow.set_experiment("Wine classification")
 # load dataset wine
 wine = load_wine()
 
@@ -22,7 +23,6 @@ n_estimators = 8
 
 
 with mlflow.start_run():
-  print('Entered')
   rf = RandomForestClassifier(max_depth=max_depth, n_estimators=n_estimators, random_state=42)
   rf.fit(x_train, y_train)
   
@@ -43,7 +43,7 @@ with mlflow.start_run():
   plt.title('Confusion Matrix')
 
 
-  # plt.savefig('Confusion-matrix.png')
+  plt.savefig('Confusion-matrix.png')
 
   mlflow.log_artifact('Confusion-matrix.png')
   mlflow.log_artifact(__file__)
@@ -51,4 +51,3 @@ with mlflow.start_run():
   mlflow.set_tags({'Author': 'Pankaj Sharma', 'Project': 'Wine Classification'})
 
 
-  print(accuracy)
