@@ -2,3 +2,4 @@ mlflow
 scikit-learn
 seaborn
 matplotlib
+dagshub

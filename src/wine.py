@@ -18,8 +18,8 @@ y = wine.target
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.2, random_state = 42)
 
 
-max_depth = 5
-n_estimators = 8
+max_depth = 10
+n_estimators = 12
 
 
 with mlflow.start_run():
@@ -50,4 +50,6 @@ with mlflow.start_run():
 
   mlflow.set_tags({'Author': 'Pankaj Sharma', 'Project': 'Wine Classification'})
 
+  example_input = x_test[:1]   
+  mlflow.sklearn.log_model(rf, name="Random Forest Model", input_example=example_input)
 
